@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.simplon.AlloPito.business.dto.PatientDto;
-import co.simplon.AlloPito.business.service.product.IPatientService;
+import co.simplon.AlloPito.business.service.patient.IPatientService;
 
 @RestController
 @CrossOrigin
