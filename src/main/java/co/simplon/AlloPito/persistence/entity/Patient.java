@@ -15,13 +15,13 @@ public class Patient {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_patient;
 
-	@Column(name = "lastname_patient")
+	@Column(name = "lastname_patient", length = 50, nullable = false)
 	private String lastname_patient;
-	
-	@Column(name = "firstname_patient")
+
+	@Column(name = "firstname_patient", length = 50, nullable = false)
 	private String firstname_patient;
-	
-	@Column(name = "security_number")
+
+	@Column(name = "security_number", length = 15, nullable = false, unique = true)
 	private String security_number;
 
 	public int getId_patient() {
@@ -55,7 +55,5 @@ public class Patient {
 	public void setSecurity_number(String security_number) {
 		this.security_number = security_number;
 	}
-	
-	
 
 }
