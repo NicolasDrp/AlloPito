@@ -1,12 +1,10 @@
 package co.simplon.AlloPito.business.dto;
 
-import co.simplon.AlloPito.persistence.entity.Service;
-
 public class RoomDto {
 
 	private int id_room;
 
-	private Service service;
+	private ServiceDto service;
 
 	public int getId_room() {
 		return id_room;
@@ -16,13 +14,15 @@ public class RoomDto {
 		this.id_room = id_room;
 	}
 
-	public Service getService() {
+	public ServiceDto getService() {
 		return service;
 	}
 
-	public void setService(Service service) {
+	public void setService(ServiceDto service) {
 		this.service = service;
 	}
+
+	
 	
 	
 

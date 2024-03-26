@@ -1,15 +1,12 @@
 package co.simplon.AlloPito.business.dto;
 
-import co.simplon.AlloPito.persistence.entity.Patient;
-import co.simplon.AlloPito.persistence.entity.Room;
-
 public class BedDto {
 
 	private int id_bed;
 
-	private Patient patient;
+	private PatientDto patient;
 
-	private Room room;
+	private RoomDto room;
 
 	public int getId_bed() {
 		return id_bed;
@@ -19,20 +16,22 @@ public class BedDto {
 		this.id_bed = id_bed;
 	}
 
-	public Patient getPatient() {
+	public PatientDto getPatient() {
 		return patient;
 	}
 
-	public void setPatient(Patient patient) {
+	public void setPatient(PatientDto patient) {
 		this.patient = patient;
 	}
 
-	public Room getRoom() {
+	public RoomDto getRoom() {
 		return room;
 	}
 
-	public void setRoom(Room room) {
+	public void setRoom(RoomDto room) {
 		this.room = room;
 	}
+
+
 
 }

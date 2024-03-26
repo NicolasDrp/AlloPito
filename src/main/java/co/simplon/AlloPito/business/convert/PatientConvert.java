@@ -23,7 +23,7 @@ public class PatientConvert {
 		return instance;
 	}
 
-	public PatientDto convertEntityToDTo(final Patient patient) {
+	public PatientDto convertEntityToDto(final Patient patient) {
 		if (patient == null) {
 			throw new IllegalArgumentException("Patient ne peut pas être null");
 		}
@@ -38,7 +38,7 @@ public class PatientConvert {
 	public List<PatientDto> convertListEntityToListDto(final List<Patient> list) {
 		final List<PatientDto> listDto = new ArrayList<>();
 		for (Patient patient : list) {
-			listDto.add(convertEntityToDTo(patient));
+			listDto.add(convertEntityToDto(patient));
 		}
 		return listDto;
 	}
