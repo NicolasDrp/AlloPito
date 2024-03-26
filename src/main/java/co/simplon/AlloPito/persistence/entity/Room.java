@@ -17,11 +17,11 @@ public class Room {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_room;
 
-	@Column(name = "number_room")
+	@Column(name = "number_room", length = 5, nullable = false)
 	private String number_room;
 
 	@ManyToOne
-	@JoinColumn(name = "id_service")
+	@JoinColumn(name = "id_service", nullable = false)
 	private Service service;
 
 	public int getId_room() {

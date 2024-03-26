@@ -22,7 +22,7 @@ public class Bed {
 	private Patient patient;
 
 	@ManyToOne
-	@JoinColumn(name = "id_room")
+	@JoinColumn(name = "id_room", nullable = false)
 	private Room room;
 
 	public int getId_bed() {

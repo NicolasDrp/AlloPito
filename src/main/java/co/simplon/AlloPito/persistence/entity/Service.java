@@ -15,7 +15,7 @@ public class Service {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_service;
 
-	@Column(name = "name_service")
+	@Column(name = "name_service", length = 50, nullable = false)
 	private String name_service;
 
 	public int getId_service() {

@@ -1,4 +1,4 @@
-package co.simplon.AlloPito.business.service.product;
+package co.simplon.AlloPito.business.service.patient;
 
 import java.util.List;
 
