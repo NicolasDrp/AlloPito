@@ -1,0 +1,18 @@
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_DATABASE=allopito
+      - MYSQL_ROOT_PASSWORD=oxymore
+    ports:
+      - 3307:3306
+    volumes:
+          # - ./:/docker-entrypoint-initdb.d
+          - db:/var/lib/mysql
+          
+volumes:
+    db:
+      driver: local
+        
+    
