@@ -21,13 +21,13 @@ public class PatientServiceImpl implements IPatientService {
 
 	@Override
 	public PatientDto getPatientById(final int id) {
-		return PatientConvert.getInstance().convertEntityToDTo(repo.getReferenceById(id));
+		return PatientConvert.getInstance().convertEntityToDto(repo.getReferenceById(id));
 	}
 
 	@Override
 	public PatientDto postPatient(final PatientDto patientDto) {
 		return PatientConvert.getInstance()
-				.convertEntityToDTo(repo.save(PatientConvert.getInstance().convertDtoToEntity(patientDto)));
+				.convertEntityToDto(repo.save(PatientConvert.getInstance().convertDtoToEntity(patientDto)));
 	}
 
 	@Override
