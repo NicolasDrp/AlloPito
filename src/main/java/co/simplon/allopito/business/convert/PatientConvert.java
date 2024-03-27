@@ -28,10 +28,10 @@ public class PatientConvert {
 			throw new IllegalArgumentException("Patient ne peut pas être null");
 		}
 		final PatientDto result = new PatientDto();
-		result.setId_patient(patient.getIdPatient());
-		result.setFirstname_patient(patient.getFirstnamePatient());
-		result.setLastname_patient(patient.getLastnamePatient());
-		result.setSecurity_number(patient.getSecurityNumber());
+		result.setIdPatient(patient.getIdPatient());
+		result.setFirstnamePatient(patient.getFirstnamePatient());
+		result.setLastnamePatient(patient.getLastnamePatient());
+		result.setSecurityNumber(patient.getSecurityNumber());
 		return result;
 	}
 
@@ -48,10 +48,10 @@ public class PatientConvert {
 			throw new IllegalArgumentException("PatientDto ne peut pas être null");
 		}
 		final Patient result = new Patient();
-		result.setIdPatient(dto.getId_patient());
-		result.setFirstnamePatient(dto.getFirstname_patient());
-		result.setLastnamePatient(dto.getLastname_patient());
-		result.setSecurityNumber(dto.getSecurity_number());
+		result.setIdPatient(dto.getIdPatient());
+		result.setFirstnamePatient(dto.getFirstnamePatient());
+		result.setLastnamePatient(dto.getLastnamePatient());
+		result.setSecurityNumber(dto.getSecurityNumber());
 		return result;
 	}
 

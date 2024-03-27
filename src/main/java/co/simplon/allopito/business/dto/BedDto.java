@@ -2,18 +2,18 @@ package co.simplon.allopito.business.dto;
 
 public class BedDto {
 
-	private int id_bed;
+	private int idBed;
 
 	private PatientDto patient;
 
 	private RoomDto room;
 
-	public int getId_bed() {
-		return id_bed;
+	public int getIdBed() {
+		return idBed;
 	}
 
-	public void setId_bed(int id_bed) {
-		this.id_bed = id_bed;
+	public void setIdBed(int idBed) {
+		this.idBed = idBed;
 	}
 
 	public PatientDto getPatient() {
@@ -31,7 +31,5 @@ public class BedDto {
 	public void setRoom(RoomDto room) {
 		this.room = room;
 	}
-
-
 
 }

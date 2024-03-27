@@ -28,8 +28,8 @@ public class ServiceConvert {
 			throw new IllegalArgumentException("ServiceDto ne peut pas être null");
 		}
 		final Service service = new Service();
-		service.setIdService(dto.getId_service());
-		service.setNameService(dto.getName_service());
+		service.setIdService(dto.getIdService());
+		service.setNameService(dto.getNameService());
 		return service;
 	}
 
@@ -46,8 +46,8 @@ public class ServiceConvert {
 			throw new IllegalArgumentException("Service ne peut pas être null");
 		}
 		ServiceDto result = new ServiceDto();
-		result.setId_service(service.getIdService());
-		result.setName_service(service.getNameService());
+		result.setIdService(service.getIdService());
+		result.setNameService(service.getNameService());
 		return result;
 	}
 

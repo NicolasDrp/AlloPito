@@ -2,24 +2,24 @@ package co.simplon.allopito.business.dto;
 
 public class ServiceDto {
 
-	private int id_service;
+	private int idService;
 
-	private String name_service;
+	private String nameService;
 
-	public int getId_service() {
-		return id_service;
+	public int getIdService() {
+		return idService;
 	}
 
-	public void setId_service(int id_service) {
-		this.id_service = id_service;
+	public void setIdService(int idService) {
+		this.idService = idService;
 	}
 
-	public String getName_service() {
-		return name_service;
+	public String getNameService() {
+		return nameService;
 	}
 
-	public void setName_service(String name_service) {
-		this.name_service = name_service;
+	public void setNameService(String nameService) {
+		this.nameService = nameService;
 	}
 
 }
