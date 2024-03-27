@@ -13,5 +13,7 @@ public interface IBedService {
 	public BedDto postBed(final BedDto bed);
 
 	public void deleteBed(final BedDto bed);
+	
+	public List<BedDto> getEmptyBedsByService(final int idService);
 
 }
