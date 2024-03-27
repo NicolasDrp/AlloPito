@@ -28,7 +28,7 @@ public class BedConvert {
 			throw new IllegalArgumentException("Bed ne peut pas être null");
 		}
 		final BedDto dto = new BedDto();
-		dto.setId_bed(bed.getId_bed());
+		dto.setId_bed(bed.getIdBed());
 		if (bed.getPatient() == null) {
 			dto.setPatient(null);
 		} else {
@@ -51,7 +51,7 @@ public class BedConvert {
 			throw new IllegalArgumentException("BedDto ne peut pas être null");
 		}
 		final Bed bed = new Bed();
-		bed.setId_bed(dto.getId_bed());
+		bed.setIdBed(dto.getId_bed());
 		if (dto.getPatient() == null) {
 			dto.setPatient(null);
 		} else {

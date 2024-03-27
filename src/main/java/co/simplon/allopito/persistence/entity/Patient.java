@@ -13,47 +13,48 @@ public class Patient {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_patient;
+	@Column(name = "id_patient")
+	private int idPatient;
 
 	@Column(name = "lastname_patient", length = 50, nullable = false)
-	private String lastname_patient;
+	private String lastnamePatient;
 
 	@Column(name = "firstname_patient", length = 50, nullable = false)
-	private String firstname_patient;
+	private String firstnamePatient;
 
 	@Column(name = "security_number", length = 15, nullable = false, unique = true)
-	private String security_number;
+	private String securityNumber;
 
-	public int getId_patient() {
-		return id_patient;
+	public int getIdPatient() {
+		return idPatient;
 	}
 
-	public void setId_patient(int id_patient) {
-		this.id_patient = id_patient;
+	public void setIdPatient(int idPatient) {
+		this.idPatient = idPatient;
 	}
 
-	public String getLastname_patient() {
-		return lastname_patient;
+	public String getLastnamePatient() {
+		return lastnamePatient;
 	}
 
-	public void setLastname_patient(String lastname_patient) {
-		this.lastname_patient = lastname_patient;
+	public void setLastnamePatient(String lastnamePatient) {
+		this.lastnamePatient = lastnamePatient;
 	}
 
-	public String getFirstname_patient() {
-		return firstname_patient;
+	public String getFirstnamePatient() {
+		return firstnamePatient;
 	}
 
-	public void setFirstname_patient(String firstname_patient) {
-		this.firstname_patient = firstname_patient;
+	public void setFirstnamePatient(String firstnamePatient) {
+		this.firstnamePatient = firstnamePatient;
 	}
 
-	public String getSecurity_number() {
-		return security_number;
+	public String getSecurityNumber() {
+		return securityNumber;
 	}
 
-	public void setSecurity_number(String security_number) {
-		this.security_number = security_number;
+	public void setSecurityNumber(String securityNumber) {
+		this.securityNumber = securityNumber;
 	}
 
 }

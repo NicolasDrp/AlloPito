@@ -15,29 +15,29 @@ public class Room {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_room;
+	private int idRoom;
 
 	@Column(name = "number_room", length = 5, nullable = false)
-	private String number_room;
+	private String numberRoom;
 
 	@ManyToOne
 	@JoinColumn(name = "id_service", nullable = false)
 	private Service service;
 
-	public int getId_room() {
-		return id_room;
+	public int getIdRoom() {
+		return idRoom;
 	}
 
-	public void setId_room(int id_room) {
-		this.id_room = id_room;
+	public void setIdRoom(int idRoom) {
+		this.idRoom = idRoom;
 	}
 
-	public String getNumber_room() {
-		return number_room;
+	public String getNumberRoom() {
+		return numberRoom;
 	}
 
-	public void setNumber_room(String number_room) {
-		this.number_room = number_room;
+	public void setNumberRoom(String numberRoom) {
+		this.numberRoom = numberRoom;
 	}
 
 	public Service getService() {

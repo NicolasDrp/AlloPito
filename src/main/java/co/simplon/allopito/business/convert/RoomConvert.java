@@ -28,8 +28,8 @@ public class RoomConvert {
 			throw new IllegalArgumentException("RoomDto ne peut pas être null");
 		}
 		final Room room = new Room();
-		room.setId_room(dto.getId_room());
-		room.setNumber_room(dto.getNumber_room());
+		room.setIdRoom(dto.getId_room());
+		room.setNumberRoom(dto.getNumber_room());
 		room.setService(ServiceConvert.getInstance().convertDtoToEntity(dto.getService()));
 
 		return room;
@@ -48,8 +48,8 @@ public class RoomConvert {
 			throw new IllegalArgumentException("Room ne peut pas être null");
 		}
 		RoomDto result = new RoomDto();
-		result.setId_room(room.getId_room());
-		result.setNumber_room(room.getNumber_room());
+		result.setId_room(room.getIdRoom());
+		result.setNumber_room(room.getNumberRoom());
 		result.setService(ServiceConvert.getInstance().convertEntityToDto(room.getService()));
 		return result;
 	}

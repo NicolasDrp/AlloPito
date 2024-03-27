@@ -1,5 +1,6 @@
 package co.simplon.allopito.persistence.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,7 +16,8 @@ public class Bed {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_bed;
+	@Column(name = "id_bed")
+	private int idBed;
 
 	@OneToOne
 	@JoinColumn(name = "id_patient")
@@ -25,12 +27,12 @@ public class Bed {
 	@JoinColumn(name = "id_room", nullable = false)
 	private Room room;
 
-	public int getId_bed() {
-		return id_bed;
+	public int getIdBed() {
+		return idBed;
 	}
 
-	public void setId_bed(int id_bed) {
-		this.id_bed = id_bed;
+	public void setIdBed(int idBed) {
+		this.idBed = idBed;
 	}
 
 	public Patient getPatient() {
