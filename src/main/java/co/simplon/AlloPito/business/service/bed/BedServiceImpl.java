@@ -25,13 +25,18 @@ public class BedServiceImpl implements IBedService {
 	}
 
 	@Override
-	public BedDto postBed(BedDto bed) {
+	public BedDto postBed(final BedDto bed) {
 		return BedConvert.getInstance().convertEntityToDto(repo.save(BedConvert.getInstance().convertDtoToEntity(bed)));
 	}
 
 	@Override
-	public void deleteBed(BedDto bed) {
+	public void deleteBed(final BedDto bed) {
 		repo.delete(BedConvert.getInstance().convertDtoToEntity(bed));
+	}
+
+	@Override
+	public List<BedDto> getEmptyBedsByService(final int idService) {
+		return BedConvert.getInstance().convertListEntityToListDto(repo.getEmptyBedsByService(idService));
 	}
 
 	@Autowired

@@ -11,7 +11,7 @@ import co.simplon.AlloPito.business.service.bed.IBedService;
 
 @RestController
 @CrossOrigin
-public class GetBedById {
+public class GetBedByIdController {
 
 	private IBedService service;
 
