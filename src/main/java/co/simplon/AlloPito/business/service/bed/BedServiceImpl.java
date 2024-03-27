@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.simplon.AlloPito.business.convert.BedConvert;
+import co.simplon.AlloPito.business.convert.PatientConvert;
 import co.simplon.AlloPito.business.dto.BedDto;
+import co.simplon.AlloPito.business.dto.PatientDto;
 import co.simplon.AlloPito.persistence.repository.IBedRepository;
 
 @Service
@@ -39,9 +41,13 @@ public class BedServiceImpl implements IBedService {
 		return BedConvert.getInstance().convertListEntityToListDto(repo.getEmptyBedsByService(idService));
 	}
 
+	@Override
+	public void removePatientFromBed(PatientDto patient) {
+		repo.removePatientFromBed(PatientConvert.getInstance().convertDtoToEntity(patient));
+	}
+
 	@Autowired
 	public void setRepo(IBedRepository repo) {
 		this.repo = repo;
 	}
-
 }
