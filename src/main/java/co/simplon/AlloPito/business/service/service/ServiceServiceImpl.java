@@ -47,6 +47,7 @@ public class ServiceServiceImpl implements IServiceService {
 		if (beds.isEmpty()) {
 			throw new IllegalStateException("No beds available for this service.");
 		}
+		bedService.removePatientFromBed(patient);
 		beds.get(0).setPatient(patient);
 		return bedService.postBed(beds.get(0));
 	}
