@@ -26,7 +26,7 @@ import co.simplon.allopito.persistence.repository.IRoomRepository;
 import co.simplon.allopito.persistence.repository.IServiceRepository;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class IntegrationBedTest {
+class IntegrationBedTest {
 
 	@LocalServerPort
 	private int port;
