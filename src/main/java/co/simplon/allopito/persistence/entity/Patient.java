@@ -35,7 +35,7 @@ public class Patient {
 	private String firstnamePatient;
 
 	/**
-	 * The security number of the patient.
+	 * The social security number of the patient.
 	 */
 	@Column(name = "security_number", length = 15, nullable = false, unique = true)
 	private String securityNumber;
@@ -104,9 +104,9 @@ public class Patient {
 	}
 
 	/**
-	 * Sets the security number of the patient.
+	 * Sets the social security number of the patient.
 	 *
-	 * @param securityNumber The security number of the patient.
+	 * @param securityNumber The social security number of the patient.
 	 */
 	public void setSecurityNumber(String securityNumber) {
 		this.securityNumber = securityNumber;

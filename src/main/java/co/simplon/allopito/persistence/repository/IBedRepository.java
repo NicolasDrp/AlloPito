@@ -16,9 +16,15 @@ import co.simplon.allopito.persistence.entity.Patient;
 @Repository
 public interface IBedRepository extends JpaRepository<Bed, Integer> {
 
+	/**
+	 * Query to retrieve empty beds by service ID.
+	 */
 	@Query(BedQuery.GET_EMPTY_BED_BY_SERVICE)
 	List<Bed> getEmptyBedsByService(final int idService);
 
+	/**
+	 * Query to remove a patient from a bed.
+	 */
 	@Query(BedQuery.REMOVE_PATIENT_FROM_BED)
 	List<Bed> removePatientFromBed(final Patient patient);
 
