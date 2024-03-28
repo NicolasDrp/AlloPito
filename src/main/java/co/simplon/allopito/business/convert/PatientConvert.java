@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component;
 import co.simplon.allopito.business.dto.PatientDto;
 import co.simplon.allopito.persistence.entity.Patient;
 
+/**
+ * This class provides methods to convert between Patient entities and DTOs.
+ */
 @Component
 public class PatientConvert {
 
@@ -16,6 +19,11 @@ public class PatientConvert {
 	private PatientConvert() {
 	}
 
+	/**
+	 * Retrieves the singleton instance of PatientConvert.
+	 *
+	 * @return The singleton instance of PatientConvert.
+	 */
 	public static PatientConvert getInstance() {
 		if (instance == null) {
 			instance = new PatientConvert();
@@ -23,9 +31,16 @@ public class PatientConvert {
 		return instance;
 	}
 
+	/**
+	 * Converts a Patient entity to a PatientDto.
+	 *
+	 * @param patient The Patient entity to be converted.
+	 * @return The corresponding PatientDto.
+	 * @throws IllegalArgumentException If the input patient is null.
+	 */
 	public PatientDto convertEntityToDto(final Patient patient) {
 		if (patient == null) {
-			throw new IllegalArgumentException("Patient ne peut pas être null");
+			throw new IllegalArgumentException("Patient cannot be null");
 		}
 		final PatientDto result = new PatientDto();
 		result.setIdPatient(patient.getIdPatient());
@@ -35,6 +50,12 @@ public class PatientConvert {
 		return result;
 	}
 
+	/**
+	 * Converts a list of Patient entities to a list of PatientDto objects.
+	 *
+	 * @param list The list of Patient entities to be converted.
+	 * @return The corresponding list of PatientDto objects.
+	 */
 	public List<PatientDto> convertListEntityToListDto(final List<Patient> list) {
 		final List<PatientDto> listDto = new ArrayList<>();
 		for (Patient patient : list) {
@@ -43,9 +64,16 @@ public class PatientConvert {
 		return listDto;
 	}
 
+	/**
+	 * Converts a PatientDto to a Patient entity.
+	 *
+	 * @param dto The PatientDto to be converted.
+	 * @return The corresponding Patient entity.
+	 * @throws IllegalArgumentException If the input dto is null.
+	 */
 	public Patient convertDtoToEntity(final PatientDto dto) {
 		if (dto == null) {
-			throw new IllegalArgumentException("PatientDto ne peut pas être null");
+			throw new IllegalArgumentException("PatientDto cannot be null");
 		}
 		final Patient result = new Patient();
 		result.setIdPatient(dto.getIdPatient());
@@ -55,6 +83,12 @@ public class PatientConvert {
 		return result;
 	}
 
+	/**
+	 * Converts a list of PatientDto objects to a list of Patient entities.
+	 *
+	 * @param list The list of PatientDto objects to be converted.
+	 * @return The corresponding list of Patient entities.
+	 */
 	public List<Patient> convertListDtoToListEntity(final List<PatientDto> list) {
 		final List<Patient> listEntity = new ArrayList<>();
 		for (PatientDto patient : list) {

@@ -5,7 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import co.simplon.allopito.persistence.entity.Service;
 
+/**
+ * This interface represents a repository for accessing Service entities in the
+ * system.
+ */
 @Repository
-public interface IServiceRepository extends JpaRepository<Service, Integer>{
+public interface IServiceRepository extends JpaRepository<Service, Integer> {
 
 }
