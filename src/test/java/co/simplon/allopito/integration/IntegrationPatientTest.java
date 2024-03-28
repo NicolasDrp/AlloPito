@@ -27,7 +27,6 @@ class IntegrationPatientTest {
 	private TestRestTemplate restTemplate;
 
 	private static PatientDto patient = new PatientDto();
-	private static PatientDto patientD = new PatientDto();
 
 	@Autowired
 	private IPatientRepository repo;
@@ -54,11 +53,6 @@ class IntegrationPatientTest {
 		patient.setFirstnamePatient("Yoan");
 		patient.setLastnamePatient("Bor");
 		patient.setSecurityNumber("124314236");
-
-		patientD.setIdPatient(100);
-		patientD.setFirstnamePatient("Yoan");
-		patientD.setLastnamePatient("Bor");
-		patientD.setSecurityNumber("124314236");
 	}
 
 	@Test
