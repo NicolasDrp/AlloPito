@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -61,18 +62,7 @@ class IntegrationPatientTest {
 	}
 
 	@Test
-	void testGetPatientsEndpoint() {
-		try {
-			ResponseEntity<String> response = this.restTemplate.getForEntity("http://localhost:" + port + "/patients",
-					String.class);
-
-			assertEquals(HttpStatus.OK, response.getStatusCode());
-		} catch (Exception e) {
-			fail(e);
-		}
-	}
-
-	@Test
+	@Order(1)
 	void testGetPatientByIdEndpoint() {
 		try {
 			ResponseEntity<String> response = this.restTemplate.getForEntity("http://localhost:" + port + "/patients/1",
@@ -85,6 +75,20 @@ class IntegrationPatientTest {
 	}
 
 	@Test
+	@Order(2)
+	void testGetPatientsEndpoint() {
+		try {
+			ResponseEntity<String> response = this.restTemplate.getForEntity("http://localhost:" + port + "/patients",
+					String.class);
+
+			assertEquals(HttpStatus.OK, response.getStatusCode());
+		} catch (Exception e) {
+			fail(e);
+		}
+	}
+
+	@Test
+	@Order(3)
 	void testPostPatientEndpoint() {
 		try {
 			ResponseEntity<String> response = this.restTemplate.postForEntity("http://localhost:" + port + "/patients",
@@ -97,6 +101,7 @@ class IntegrationPatientTest {
 	}
 
 	@Test
+	@Order(4)
 	void testDeletePatientEndpoint() {
 		try {
 			this.restTemplate.delete("http://localhost:" + port + "/patients", patient, String.class);
