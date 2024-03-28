@@ -3,11 +3,13 @@ package co.simplon.allopito.persistence.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import co.simplon.allopito.persistence.entity.Bed;
 import co.simplon.allopito.persistence.entity.Patient;
+import jakarta.transaction.Transactional;
 
 /**
  * This interface represents a repository for accessing Bed entities in the
@@ -25,7 +27,9 @@ public interface IBedRepository extends JpaRepository<Bed, Integer> {
 	/**
 	 * Query to remove a patient from a bed.
 	 */
+	@Modifying
+	@Transactional
 	@Query(BedQuery.REMOVE_PATIENT_FROM_BED)
-	List<Bed> removePatientFromBed(final Patient patient);
+	void removePatientFromBed(final Patient patient);
 
 }

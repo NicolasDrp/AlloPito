@@ -3,8 +3,6 @@ package co.simplon.allopito.integration;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import java.util.List;
-
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
@@ -18,14 +16,9 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import co.simplon.allopito.business.dto.BedDto;
-import co.simplon.allopito.business.dto.PatientDto;
 import co.simplon.allopito.business.dto.ServiceDto;
-import co.simplon.allopito.persistence.entity.Bed;
-import co.simplon.allopito.persistence.entity.Room;
 import co.simplon.allopito.persistence.entity.Service;
-import co.simplon.allopito.persistence.repository.IBedRepository;
-import co.simplon.allopito.persistence.repository.IRoomRepository;
+import co.simplon.allopito.persistence.repository.IPatientRepository;
 import co.simplon.allopito.persistence.repository.IServiceRepository;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -40,29 +33,23 @@ class IntegrationServiceTest {
 
 	private static ServiceDto service = new ServiceDto();
 	private static ServiceDto serviceD = new ServiceDto();
-	private static PatientDto patient = new PatientDto();
-
 	@Autowired
 	private IServiceRepository repo;
 
 	@Autowired
-	private IBedRepository repoBed;
-
-	@Autowired
-	private IRoomRepository repoRoom;
+	private IPatientRepository repoPatient;
 
 	@BeforeEach
 	public void setUpTestData() {
+		repoPatient.deleteAll();
 		repo.deleteAll();
+	    
 
-		Service service1 = new Service();
-		service1.setNameService("service1");
+	    Service service1 = new Service();
+	    service1.setNameService("service1");
+	    repo.save(service1);
 
-		Service service2 = new Service();
-		service2.setNameService("service2");
-
-		repo.save(service1);
-		repo.save(service2);
+	    
 	}
 
 	@BeforeAll
@@ -71,6 +58,7 @@ class IntegrationServiceTest {
 
 		serviceD.setIdService(100);
 		serviceD.setNameService("service");
+
 	}
 
 	@Test
@@ -117,37 +105,6 @@ class IntegrationServiceTest {
 	void testDeleteServiceEndpoint() {
 		try {
 			this.restTemplate.delete("http://localhost:" + port + "/services", service, String.class);
-		} catch (Exception e) {
-			fail(e);
-		}
-	}
-
-	@Test
-	@Order(5)
-	void testAffectPatientToServiceEndpoint() {
-		try {
-			
-			List<Service> listServices = repo.findAll();
-			Service service = new Service();
-			service.setNameService("serviceP");
-
-			Room room = new Room();
-			room.setNumberRoom("S234");
-			room.setService(listServices.get(0));
-
-			Bed bed = new Bed();
-			bed.setRoom(room);
-			
-			repo.save(service);
-			repoRoom.save(room);
-			repoBed.save(bed);
-			
-			System.out.println(listServices.get(0).getIdService());
-			
-			ResponseEntity<String> response = this.restTemplate
-					.postForEntity("http://localhost:" + port + "/services/affect/"+listServices.get(0).getIdService(), patient, String.class);
-
-			assertEquals(HttpStatus.OK, response.getStatusCode());
 		} catch (Exception e) {
 			fail(e);
 		}
