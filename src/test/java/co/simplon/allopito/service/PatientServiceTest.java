@@ -1,26 +1,20 @@
 package co.simplon.allopito.service;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import co.simplon.allopito.business.dto.PatientDto;
-import co.simplon.allopito.business.dto.ServiceDto;
-import co.simplon.allopito.business.service.patient.IPatientService;
 import co.simplon.allopito.business.service.patient.PatientServiceImpl;
 import co.simplon.allopito.persistence.entity.Patient;
-import co.simplon.allopito.persistence.entity.Service;
 import co.simplon.allopito.persistence.repository.IPatientRepository;
 
 @ExtendWith(MockitoExtension.class)
