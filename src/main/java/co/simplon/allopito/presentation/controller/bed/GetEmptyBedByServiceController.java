@@ -13,12 +13,12 @@ import co.simplon.allopito.business.service.bed.IBedService;
 
 @RestController
 @CrossOrigin
-public class GetEmptyBedController {
+public class GetEmptyBedByServiceController {
 
 	private IBedService service;
 
 	@GetMapping("/beds/empty/{idService}")
-	public List<BedDto> getEmptyBeds(@PathVariable int idService) {
+	public List<BedDto> getEmptyBedsByService(@PathVariable int idService) {
 		return service.getEmptyBedsByService(idService);
 	}
 
