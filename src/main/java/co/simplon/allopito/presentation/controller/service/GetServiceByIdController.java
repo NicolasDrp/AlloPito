@@ -9,17 +9,31 @@ import org.springframework.web.bind.annotation.RestController;
 import co.simplon.allopito.business.dto.ServiceDto;
 import co.simplon.allopito.business.service.service.IServiceService;
 
+/**
+ * Controller class for handling requests to retrieve a service by its ID.
+ */
 @RestController
 @CrossOrigin
 public class GetServiceByIdController {
 
 	private IServiceService service;
 
+	/**
+	 * Retrieves a service by its ID.
+	 *
+	 * @param id The ID of the service to retrieve.
+	 * @return The DTO representing the retrieved service.
+	 */
 	@GetMapping("/services/{id}")
 	public ServiceDto getServiceById(@PathVariable final int id) {
 		return service.getServiceById(id);
 	}
 
+	/**
+	 * Sets the service for this controller.
+	 *
+	 * @param service The service to be set.
+	 */
 	@Autowired
 	public void setService(IServiceService service) {
 		this.service = service;
