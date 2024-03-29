@@ -1,7 +1,5 @@
 package co.simplon.allopito.business.dto;
 
-import co.simplon.allopito.persistence.entity.Service;
-
 /**
  * This class represents a DTO (Data Transfer Object) for User entities.
  */
@@ -11,7 +9,7 @@ public class UserDto {
 	private int idUser;
 
 	/** The service associated with the user. */
-	private Service service;
+	private ServiceDto service;
 
 	/** The last name of the user. */
 	private String lastnameUser;
@@ -51,7 +49,7 @@ public class UserDto {
 	 *
 	 * @return The service associated with the user.
 	 */
-	public Service getService() {
+	public ServiceDto getService() {
 		return service;
 	}
 
@@ -60,7 +58,7 @@ public class UserDto {
 	 *
 	 * @param service The service associated with the user.
 	 */
-	public void setService(Service service) {
+	public void setService(ServiceDto service) {
 		this.service = service;
 	}
 
@@ -123,7 +121,7 @@ public class UserDto {
 	 *
 	 * @return The password of the user.
 	 */
-	public String getPasswordUser() {
+	public String getPassword() {
 		return password;
 	}
 
@@ -132,7 +130,7 @@ public class UserDto {
 	 *
 	 * @param password The password of the user.
 	 */
-	public void setPasswordUser(String password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
