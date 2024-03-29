@@ -36,7 +36,7 @@ public class Bed {
 	 * The room where the bed is located.
 	 */
 	@ManyToOne
-	@JoinColumn(name = "id_room", nullable = false)
+	@JoinColumn(name = "id_room")
 	private Room room;
 
 	/**

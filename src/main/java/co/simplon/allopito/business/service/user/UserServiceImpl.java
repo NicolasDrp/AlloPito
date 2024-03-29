@@ -10,6 +10,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import co.simplon.allopito.business.convert.UserConvert;
@@ -21,6 +22,8 @@ import co.simplon.allopito.persistence.repository.IUserRepository;
 public class UserServiceImpl implements IUserService, UserDetailsService {
 
 	private IUserRepository repo;
+	
+	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
 
 	@Override
 	public List<UserDto> getUsers() {
@@ -32,8 +35,11 @@ public class UserServiceImpl implements IUserService, UserDetailsService {
 		return UserConvert.getInstance().convertEntityToDto(repo.getReferenceById(id));
 	}
 
+	//TODO : prendre en compte lenvoie d'un mot de passe deja crypté
 	@Override
 	public UserDto postUser(UserDto userDto) {
+		String result = encoder.encode(userDto.getPassword());
+		userDto.setPassword(result);
 		return UserConvert.getInstance()
 				.convertEntityToDto(repo.save(UserConvert.getInstance().convertDtoToEntity(userDto)));
 	}
