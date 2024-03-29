@@ -1,64 +1,31 @@
-package co.simplon.allopito.persistence.entity;
+package co.simplon.allopito.business.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import co.simplon.allopito.persistence.entity.Service;
 
 /**
- * This class represents a User entity in the system.
+ * This class represents a DTO (Data Transfer Object) for User entities.
  */
-@Entity
-@Table(name = "user")
-public class User {
+public class UserDto {
 
-	/**
-	 * The unique identifier of the user.
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_user")
+	/** The unique identifier of the user. */
 	private int idUser;
 
-	/**
-	 * The service associated with the user.
-	 */
-	@ManyToOne
-	@JoinColumn(name = "id_service")
+	/** The service associated with the user. */
 	private Service service;
 
-	/**
-	 * The last name of the user.
-	 */
-	@Column(name = "lastname_user", length = 50, nullable = false)
+	/** The last name of the user. */
 	private String lastnameUser;
 
-	/**
-	 * The first name of the user.
-	 */
-	@Column(name = "firstname_user", length = 50, nullable = false)
+	/** The first name of the user. */
 	private String firstnamePatient;
 
-	/**
-	 * The username of the user.
-	 */
-	@Column(name = "username", length = 50, nullable = false, unique = true)
+	/** The username of the user. */
 	private String username;
 
-	/**
-	 * The password of the user.
-	 */
-	@Column(name = "password_user", length = 255, nullable = false)
+	/** The password of the user. */
 	private String password;
 
-	/**
-	 * The role of the user.
-	 */
-	@Column(name = "role_user", length = 20, nullable = false)
+	/** The role of the user. */
 	private String roleUSer;
 
 	/**
@@ -156,7 +123,7 @@ public class User {
 	 *
 	 * @return The password of the user.
 	 */
-	public String getPassword() {
+	public String getPasswordUser() {
 		return password;
 	}
 
@@ -165,7 +132,7 @@ public class User {
 	 *
 	 * @param password The password of the user.
 	 */
-	public void setPassword(String password) {
+	public void setPasswordUser(String password) {
 		this.password = password;
 	}
 
