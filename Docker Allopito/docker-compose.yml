@@ -1,5 +1,5 @@
 services:
-  db:
+  allopito:
     image: mysql
     restart: always
     environment:
@@ -9,10 +9,10 @@ services:
       - 3307:3306
     volumes:
           - ./:/docker-entrypoint-initdb.d
-          - db:/var/lib/mysql
+          - allopito:/var/lib/mysql
           
 volumes:
-    db:
+    allopito:
       driver: local
         
     
