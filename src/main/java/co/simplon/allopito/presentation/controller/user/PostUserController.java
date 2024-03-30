@@ -23,9 +23,10 @@ public class PostUserController {
 	 *
 	 * @param userDto The DTO representing the user to be created.
 	 * @return The DTO representing the newly created user.
+	 * @throws IllegalAccessException 
 	 */
 	@PostMapping("/users")
-	public UserDto postUser(@RequestBody final UserDto userDto) {
+	public UserDto postUser(@RequestBody final UserDto userDto) throws IllegalArgumentException {
 		return service.postUser(userDto);
 	}
 

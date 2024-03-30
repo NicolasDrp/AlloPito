@@ -29,8 +29,9 @@ public interface IUserService {
 	 *
 	 * @param userDto The DTO representing the user to be created.
 	 * @return The DTO representing the newly created user.
+	 * @throws IllegalAccessException
 	 */
-	public UserDto postUser(final UserDto userDto);
+	public UserDto postUser(final UserDto userDto) throws IllegalArgumentException;
 
 	/**
 	 * Deletes a user.
