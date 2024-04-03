@@ -41,15 +41,14 @@ public class UserServiceImpl implements IUserService, UserDetailsService {
 
 		if (!(userDto.getPassword().substring(0, 7).equals("$2a$16$"))) {
 			if (Pattern.compile("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")
-		               .matcher(userDto.getPassword())
-		               .find()) {
+					.matcher(userDto.getPassword()).find()) {
 				String result = encoder.encode(userDto.getPassword());
 				userDto.setPassword(result);
 			} else {
 				throw new IllegalArgumentException(
 						"Password Incorrect, the password must contain at least 8 characters including numbers, lowercase, uppercase and special characters.");
 			}
-			
+
 		}
 		return UserConvert.getInstance()
 				.convertEntityToDto(repo.save(UserConvert.getInstance().convertDtoToEntity(userDto)));
@@ -58,11 +57,6 @@ public class UserServiceImpl implements IUserService, UserDetailsService {
 	@Override
 	public void deleteUser(UserDto userDto) {
 		repo.delete(UserConvert.getInstance().convertDtoToEntity(userDto));
-	}
-
-	@Autowired
-	public void setRepo(IUserRepository repo) {
-		this.repo = repo;
 	}
 
 	@Override
@@ -77,8 +71,13 @@ public class UserServiceImpl implements IUserService, UserDetailsService {
 
 	private Set<GrantedAuthority> getAuthorities(User user) {
 		Set<GrantedAuthority> authorities = new HashSet<>();
-		authorities.add(new SimpleGrantedAuthority(user.getRoleUSer()));
+		authorities.add(new SimpleGrantedAuthority("ROLE_" + user.getRoleUSer()));
 		return authorities;
+	}
+
+	@Autowired
+	public void setRepo(IUserRepository repo) {
+		this.repo = repo;
 	}
 
 }

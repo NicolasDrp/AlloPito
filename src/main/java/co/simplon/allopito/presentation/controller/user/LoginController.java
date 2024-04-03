@@ -4,7 +4,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.simplon.allopito.presentation.controller.service.JWTService;
+import co.simplon.allopito.business.service.JWTService;
 
 @RestController
 public class LoginController {
