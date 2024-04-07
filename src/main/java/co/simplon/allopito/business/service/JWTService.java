@@ -23,13 +23,13 @@ public class JWTService {
 	}
 
 	public String generateToken(Authentication authentication) {
-		String authorities = authentication.getAuthorities().stream()
-                .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.joining(","));
-		
+		String scope = authentication.getAuthorities().stream().map(GrantedAuthority::getAuthority)
+				.collect(Collectors.joining(" "));
+
 		Instant now = Instant.now();
 		JwtClaimsSet claims = JwtClaimsSet.builder().issuer("self").issuedAt(now)
-				.expiresAt(now.plus(1, ChronoUnit.DAYS)).subject(authentication.getName()).claim("roles", authorities).build();
+				.expiresAt(now.plus(1, ChronoUnit.DAYS)).subject(authentication.getName()).claim("scope", scope)
+				.build();
 		JwtEncoderParameters jwtEncoderParameters = JwtEncoderParameters
 				.from(JwsHeader.with(MacAlgorithm.HS256).build(), claims);
 		return this.jwtEncoder.encode(jwtEncoderParameters).getTokenValue();
