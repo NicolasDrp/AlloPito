@@ -11,7 +11,12 @@ jobs:
             java-version: '17'
             distribution: 'temurin'
         - name: Run the Maven verify phase
-          run: mvn --batch-mode --update-snapshots verify chmod +x mvnw
+          run: mvn --batch-mode --update-snapshots verify 
+
+        - name: chmod mvnw
+          run: chmod +x mvnw 
+
+          
 
         - uses: actions/checkout@master
         - name: Run Snyk to check for vulnerabilities
