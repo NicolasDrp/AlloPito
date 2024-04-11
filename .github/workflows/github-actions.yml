@@ -12,4 +12,11 @@ jobs:
             distribution: 'temurin'
         - name: Run the Maven verify phase
           run: mvn --batch-mode --update-snapshots verify
+
+        - uses: actions/checkout@master
+        - name: Run Snyk to check for vulnerabilities
+          uses: snyk/actions/maven@master
+          env:
+            SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
       
