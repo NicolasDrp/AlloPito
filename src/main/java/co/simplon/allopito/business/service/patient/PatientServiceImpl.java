@@ -7,12 +7,16 @@ import org.springframework.stereotype.Service;
 
 import co.simplon.allopito.business.convert.PatientConvert;
 import co.simplon.allopito.business.dto.PatientDto;
+import co.simplon.allopito.business.service.bed.IBedService;
+import co.simplon.allopito.persistence.repository.IBedRepository;
 import co.simplon.allopito.persistence.repository.IPatientRepository;
 
 @Service
 public class PatientServiceImpl implements IPatientService {
 
 	private IPatientRepository repo;
+	
+	private IBedService bedService; 
 
 	@Override
 	public List<PatientDto> getPatients() {
@@ -32,6 +36,7 @@ public class PatientServiceImpl implements IPatientService {
 
 	@Override
 	public void deletePatient(final PatientDto patientDto) {
+		bedService.removePatientFromBed(patientDto);
 		repo.delete(PatientConvert.getInstance().convertDtoToEntity(patientDto));
 	}
 
@@ -39,5 +44,12 @@ public class PatientServiceImpl implements IPatientService {
 	public void setRepo(final IPatientRepository repo) {
 		this.repo = repo;
 	}
+
+	@Autowired
+	public void setBedService(IBedService bedService) {
+		this.bedService = bedService;
+	}
+	
+	
 
 }

@@ -15,6 +15,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import co.simplon.allopito.business.dto.RoomDto;
 import co.simplon.allopito.business.dto.ServiceDto;
+import co.simplon.allopito.business.service.bed.IBedService;
 import co.simplon.allopito.business.service.room.RoomServiceImpl;
 import co.simplon.allopito.persistence.entity.Room;
 import co.simplon.allopito.persistence.entity.Service;
@@ -25,6 +26,9 @@ class RoomServiceTest {
 
 	@Mock
 	private IRoomRepository repo;
+	
+	@Mock
+    private IBedService bedService;
 
 	@InjectMocks
 	private RoomServiceImpl service;

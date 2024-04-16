@@ -4,6 +4,7 @@ import java.util.List;
 
 import co.simplon.allopito.business.dto.BedDto;
 import co.simplon.allopito.business.dto.PatientDto;
+import co.simplon.allopito.business.dto.RoomDto;
 
 /**
  * This interface defines the bed-related services.
@@ -54,5 +55,12 @@ public interface IBedService {
 	 * @param patient The DTO representing the patient to be removed from the bed.
 	 */
 	void removePatientFromBed(final PatientDto patient);
+
+	/**
+	 * Removes a room from a bed.
+	 *
+	 * @param patient The DTO representing the room to be removed from the bed.
+	 */
+	void removeRoomFromBed(RoomDto room);
 
 }

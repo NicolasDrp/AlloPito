@@ -18,7 +18,6 @@ import org.springframework.http.ResponseEntity;
 
 import co.simplon.allopito.business.dto.ServiceDto;
 import co.simplon.allopito.persistence.entity.Service;
-import co.simplon.allopito.persistence.repository.IPatientRepository;
 import co.simplon.allopito.persistence.repository.IServiceRepository;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -36,13 +35,9 @@ class IntegrationServiceTest {
 	@Autowired
 	private IServiceRepository repo;
 
-	@Autowired
-	private IPatientRepository repoPatient;
-
 	@BeforeEach
 	public void setUpTestData() {
-		repoPatient.deleteAll();
-		repo.deleteAll();
+
 	    
 
 	    Service service1 = new Service();

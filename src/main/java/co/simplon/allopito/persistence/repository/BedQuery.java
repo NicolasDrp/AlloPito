@@ -21,4 +21,10 @@ public class BedQuery {
 	 * Query to remove a patient from a bed.
 	 */
 	public static final String REMOVE_PATIENT_FROM_BED = "UPDATE Bed b SET b.patient = NULL WHERE b.patient = :patient";
+	
+	
+	/**
+	 * Query to remove a room from a bed.
+	 */
+	public static final String REMOVE_ROOM_FROM_BED = "UPDATE Bed b SET b.room = NULL WHERE b.room = :room";
 }

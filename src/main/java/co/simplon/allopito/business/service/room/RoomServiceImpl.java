@@ -7,12 +7,15 @@ import org.springframework.stereotype.Service;
 
 import co.simplon.allopito.business.convert.RoomConvert;
 import co.simplon.allopito.business.dto.RoomDto;
+import co.simplon.allopito.business.service.bed.IBedService;
 import co.simplon.allopito.persistence.repository.IRoomRepository;
 
 @Service
 public class RoomServiceImpl implements IRoomService {
 
 	private IRoomRepository repo;
+	
+	private IBedService bedService; 
 
 	@Override
 	public List<RoomDto> getRooms() {
@@ -32,12 +35,18 @@ public class RoomServiceImpl implements IRoomService {
 
 	@Override
 	public void deleteRoom(RoomDto room) {
+		bedService.removeRoomFromBed(room);
 		repo.delete(RoomConvert.getInstance().convertDtoToEntity(room));
 	}
 
 	@Autowired
 	public void setRepo(IRoomRepository repo) {
 		this.repo = repo;
+	}
+	
+	@Autowired
+	public void setBedService(IBedService bedService) {
+		this.bedService = bedService;
 	}
 
 }

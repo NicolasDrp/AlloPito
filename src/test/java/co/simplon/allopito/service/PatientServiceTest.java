@@ -13,6 +13,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import co.simplon.allopito.business.dto.PatientDto;
+import co.simplon.allopito.business.service.bed.IBedService;
 import co.simplon.allopito.business.service.patient.PatientServiceImpl;
 import co.simplon.allopito.persistence.entity.Patient;
 import co.simplon.allopito.persistence.repository.IPatientRepository;
@@ -22,6 +23,9 @@ class PatientServiceTest {
 
 	@Mock
 	private IPatientRepository repo;
+	
+	@Mock
+    private IBedService bedService;
 
 	@InjectMocks
 	private PatientServiceImpl service;

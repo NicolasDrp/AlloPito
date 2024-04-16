@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import co.simplon.allopito.persistence.entity.Bed;
 import co.simplon.allopito.persistence.entity.Patient;
+import co.simplon.allopito.persistence.entity.Room;
 import jakarta.transaction.Transactional;
 
 /**
@@ -31,5 +32,13 @@ public interface IBedRepository extends JpaRepository<Bed, Integer> {
 	@Transactional
 	@Query(BedQuery.REMOVE_PATIENT_FROM_BED)
 	void removePatientFromBed(final Patient patient);
+	
+	/**
+	 * Query to remove a room from a bed.
+	 */
+	@Modifying
+	@Transactional
+	@Query(BedQuery.REMOVE_ROOM_FROM_BED)
+	void removeRoomFromBed(final Room room);
 
 }

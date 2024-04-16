@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import co.simplon.allopito.business.convert.BedConvert;
 import co.simplon.allopito.business.convert.PatientConvert;
+import co.simplon.allopito.business.convert.RoomConvert;
 import co.simplon.allopito.business.dto.BedDto;
 import co.simplon.allopito.business.dto.PatientDto;
+import co.simplon.allopito.business.dto.RoomDto;
 import co.simplon.allopito.persistence.repository.IBedRepository;
 
 @Service
@@ -42,8 +44,13 @@ public class BedServiceImpl implements IBedService {
 	}
 
 	@Override
-	public void removePatientFromBed(PatientDto patient) {
+	public void removePatientFromBed(final PatientDto patient) {
 		repo.removePatientFromBed(PatientConvert.getInstance().convertDtoToEntity(patient));
+	}
+	
+	@Override
+	public void removeRoomFromBed(final RoomDto room) {
+		repo.removeRoomFromBed(RoomConvert.getInstance().convertDtoToEntity(room));
 	}
 
 	@Autowired
