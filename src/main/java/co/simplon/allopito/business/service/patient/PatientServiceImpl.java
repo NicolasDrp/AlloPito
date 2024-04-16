@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import co.simplon.allopito.business.convert.PatientConvert;
 import co.simplon.allopito.business.dto.PatientDto;
 import co.simplon.allopito.business.service.bed.IBedService;
-import co.simplon.allopito.persistence.repository.IBedRepository;
 import co.simplon.allopito.persistence.repository.IPatientRepository;
 
 @Service

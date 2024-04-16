@@ -1,4 +1,4 @@
-package co.simplon.allopito.integration;
+  package co.simplon.allopito.integration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;

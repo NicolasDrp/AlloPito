@@ -31,28 +31,25 @@ class IntegrationServiceTest {
 	private TestRestTemplate restTemplate;
 
 	private static ServiceDto service = new ServiceDto();
-	private static ServiceDto serviceD = new ServiceDto();
+	
 	@Autowired
 	private IServiceRepository repo;
 
 	@BeforeEach
 	public void setUpTestData() {
+		Service service1 = new Service();
+		service1.setNameService("service1");
 
-	    
+		Service service2 = new Service();
+		service2.setNameService("service2");
 
-	    Service service1 = new Service();
-	    service1.setNameService("service1");
-	    repo.save(service1);
-
-	    
+		repo.save(service1);
+		repo.save(service2);
 	}
 
 	@BeforeAll
 	static void init() {
 		service.setNameService("service");
-
-		serviceD.setIdService(100);
-		serviceD.setNameService("service");
 
 	}
 
